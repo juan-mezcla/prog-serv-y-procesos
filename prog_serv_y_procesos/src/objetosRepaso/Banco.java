@@ -88,7 +88,7 @@ public class Banco {
 			System.out.println("Cuanto dinero deseas transferir a la cuenta con CIF: "+cuentaRecibe.getNumeroCuenta()+"?(Saldo actual: "+cuentaIngresa.getSaldo()+" €)");
 			double ingreso=prompt.nextDouble();
 			
-			//cuentaIngresa.setSaldo(cuentaIngresa.getSaldo()-ingreso);
+			cuentaIngresa.setSaldo(cuentaIngresa.getSaldo()-ingreso);
 			
 			cuentaRecibe.setSaldo(cuentaRecibe.getSaldo()+ingreso);
 			System.out.println("Transferencia realizada!!\n");
@@ -103,6 +103,16 @@ public class Banco {
 			
 			
 		}while(opcion!=2);
+	}
+	
+	public void mostrarDatosCuentas() {
+		int acumulador=1;
+		for(CuentaBancaria cuenta: this.cuentas) {
+			System.out.println("\n"+acumulador+"-Numero de cuenta: "+cuenta.getNumeroCuenta()+"\n");
+			cuenta.mostrarTitulares();
+			
+			acumulador++;
+		}
 	}
 
 }

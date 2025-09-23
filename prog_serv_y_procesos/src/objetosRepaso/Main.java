@@ -11,7 +11,9 @@ public class Main {
 			banco.cuentas.add(new CuentaBancaria());
 		}
 		int acumulador=1;
-		
+		/*
+		  
+		 
 		System.out.println("Cuentas que estan en "+banco.nombre);
 		for(CuentaBancaria cuenta: banco.cuentas) {
 			System.out.println("Cuenta "+acumulador);
@@ -20,7 +22,8 @@ public class Main {
 			System.out.println("---------------------");
 			acumulador++;
 		}
-		
+		 * */
+		menuBanco(banco);
 		//menu(cuenta);
 		
 	}
@@ -31,7 +34,7 @@ public class Main {
 		do {
 			
 			System.out.println("Elige una de las opciones");
-			System.out.println("1-Crear cuenta. 2-Realizar transferencia a otra cuenta. 3-Salir");
+			System.out.println("1-Crear cuenta. 2-Realizar transferencia a otra cuenta. 3-Entrar en cuenta. 4-Salir");
 			opcion=prompt.nextInt();
 			try {
 				
@@ -41,15 +44,19 @@ public class Main {
 					break;
 					
 				case 2:
-					
+					banco.transferencia();
 					break;
 					
 				case 3:
-					
+					banco.borrar_cuenta();
 					break;
 					
 				case 4:
+					banco.mostrarDatosCuentas();
+					System.out.println("Elige la cuenta a la que quieres acceder:");
+					opcion=prompt.nextInt();
 					
+					menu(banco.cuentas.get(opcion-1));
 					break;
 				
 				}
