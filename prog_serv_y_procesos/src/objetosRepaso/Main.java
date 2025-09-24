@@ -11,20 +11,8 @@ public class Main {
 			banco.cuentas.add(new CuentaBancaria());
 		}
 		int acumulador=1;
-		/*
-		  
-		 
-		System.out.println("Cuentas que estan en "+banco.nombre);
-		for(CuentaBancaria cuenta: banco.cuentas) {
-			System.out.println("Cuenta "+acumulador);
-			cuenta.mostrarTitulares();
-			
-			System.out.println("---------------------");
-			acumulador++;
-		}
-		 * */
+		
 		menuBanco(banco);
-		//menu(cuenta);
 		
 	}
 	
