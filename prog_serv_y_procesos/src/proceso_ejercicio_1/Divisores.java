@@ -1,4 +1,4 @@
-//package proceso_ejercicio_1;
+package proceso_ejercicio_1;
 
 public class Divisores {
 

@@ -1,4 +1,4 @@
-//package procesos_actividad1;
+package procesos_actividad1;
 
 import java.io.IOException;
 import java.io.InputStream;
