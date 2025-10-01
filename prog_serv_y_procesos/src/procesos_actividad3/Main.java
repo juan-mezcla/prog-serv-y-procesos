@@ -12,23 +12,22 @@ public class Main {
 		
 		int opcion=0;
 		int codigoRespuesta=0;
+		String fin="";
 		do {
 			Process hijo;
 			try {
+				fin=prompt.nextLine();
 				
-				System.out.println("Quieres un numero aleatorio? 1-Si. 2-No");
-				opcion=prompt.nextInt();
+				fin=(fin.trim().equalsIgnoreCase("fin"))?"fin":"";
 				
-				String fin=(opcion!=2)?"":"fin";
-				
-				
-				hijo=new ProcessBuilder("java","NumerosAleatorios",fin).start();
+				hijo=new ProcessBuilder("java","procesos_actividad3.NumerosAleatorios",fin).start();
 				InputStream input=hijo.getInputStream();
-				if(opcion==1) {
+				if(!fin.trim().equalsIgnoreCase("fin")) {
 					int datos;
 					while ((datos = input.read())!=-1){
 						System.out.print((char) datos);
 					}
+					input.close();
 				}else {
 					input.close();
 				}
@@ -48,7 +47,7 @@ public class Main {
 				System.out.println("Codigo de respuesta: "+codigoRespuesta);
 			}
 			
-		}while(opcion!=2);
+		}while(!fin.trim().equalsIgnoreCase("fin"));
 
 	}
 
