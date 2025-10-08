@@ -25,7 +25,7 @@ public class Main {
 				System.out.println(linea);
 			}
 			
-			
+			leer.close();
 			hijo.waitFor();
 		
 			} catch (IOException e) {

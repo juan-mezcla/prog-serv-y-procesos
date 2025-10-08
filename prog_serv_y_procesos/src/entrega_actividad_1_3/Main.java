@@ -1,4 +1,4 @@
-package procesos_actividad_6;
+package entrega_actividad_1_3;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -9,11 +9,11 @@ public class Main {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		Scanner prompt=new Scanner(System.in);
+		
 		
 		try {
 			
-			Process suma=new ProcessBuilder("java","procesos_actividad_6.Suma",args[0],args[1]).start();
+			Process suma=new ProcessBuilder("java","entrega_actividad_1_3.Suma",args[0],args[1]).start();
 			BufferedReader leer=new BufferedReader(new InputStreamReader(suma.getInputStream()));
 			
 			String linea;
@@ -22,6 +22,16 @@ public class Main {
 				System.out.println(linea);
 			}
 			leer.close();
+			
+			
+			BufferedReader leerError=new BufferedReader(new InputStreamReader(suma.getErrorStream()));
+			
+			String lineaError;
+			
+			while((lineaError=leerError.readLine())!=null) {
+				System.out.println(lineaError);
+			}
+			leerError.close();
 			suma.waitFor();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
