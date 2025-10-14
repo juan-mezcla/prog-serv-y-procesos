@@ -1,8 +1,10 @@
 package entrega_actividad_1_3;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.util.Scanner;
 
 public class Main {
@@ -13,7 +15,20 @@ public class Main {
 		
 		try {
 			
-			Process suma=new ProcessBuilder("java","entrega_actividad_1_3.Suma",args[0],args[1]).start();
+			Process suma=new ProcessBuilder("java","entrega_actividad_1_3.Suma").start();
+			BufferedWriter escribir=new BufferedWriter(new OutputStreamWriter(suma.getOutputStream()));
+			if(args.length>=2) {
+				
+				escribir.write(args[0]+"\n");
+				escribir.write(args[1]);
+				
+				escribir.flush();
+				escribir.close();
+			}else {
+				throw new java.lang.ArrayIndexOutOfBoundsException(); 
+			}
+			
+			
 			BufferedReader leer=new BufferedReader(new InputStreamReader(suma.getInputStream()));
 			
 			String linea;
@@ -39,6 +54,9 @@ public class Main {
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}catch (java.lang.ArrayIndexOutOfBoundsException e) {
+			// TODO Auto-generated catch block
+			System.out.println("Tienes que poner 2 numeros para que funcione el programa.");
 		}
 		
 	}
