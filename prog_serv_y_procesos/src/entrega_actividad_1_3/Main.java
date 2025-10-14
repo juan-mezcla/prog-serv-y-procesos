@@ -11,39 +11,42 @@ public class Main {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		
-		
+
 		try {
-			
-			Process suma=new ProcessBuilder("java","entrega_actividad_1_3.Suma").start();
-			BufferedWriter escribir=new BufferedWriter(new OutputStreamWriter(suma.getOutputStream()));
-			if(args.length>=2) {
-				
-				escribir.write(args[0]+"\n");
+
+			Process suma = new ProcessBuilder("java", "entrega_actividad_1_3.Suma").start();
+			// Creamos la variable escribir para mandar los datos al hijo.
+			BufferedWriter escribir = new BufferedWriter(new OutputStreamWriter(suma.getOutputStream()));
+
+			// Comprobamos que haya metido en terminal al hacer el comando java dos
+			// parametros.
+			if (args.length >= 2) {
+
+				escribir.write(args[0] + "\n");
 				escribir.write(args[1]);
-				
+
 				escribir.flush();
 				escribir.close();
-			}else {
-				throw new java.lang.ArrayIndexOutOfBoundsException(); 
+			} else {// Throw en caso de no añadir los datos.
+				throw new java.lang.ArrayIndexOutOfBoundsException();
 			}
-			
-			
-			BufferedReader leer=new BufferedReader(new InputStreamReader(suma.getInputStream()));
-			
+
+			// Leemos los datos que ha procesado suma.
+			BufferedReader leer = new BufferedReader(new InputStreamReader(suma.getInputStream()));
+
 			String linea;
-			
-			while((linea=leer.readLine())!=null) {
+
+			while ((linea = leer.readLine()) != null) {
 				System.out.println(linea);
 			}
 			leer.close();
-			
-			
-			BufferedReader leerError=new BufferedReader(new InputStreamReader(suma.getErrorStream()));
-			
+
+			// Leemos los datos en caso de error de suma.
+			BufferedReader leerError = new BufferedReader(new InputStreamReader(suma.getErrorStream()));
+
 			String lineaError;
-			
-			while((lineaError=leerError.readLine())!=null) {
+
+			while ((lineaError = leerError.readLine()) != null) {
 				System.out.println(lineaError);
 			}
 			leerError.close();
@@ -54,11 +57,11 @@ public class Main {
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}catch (java.lang.ArrayIndexOutOfBoundsException e) {
+		} catch (java.lang.ArrayIndexOutOfBoundsException e) {
 			// TODO Auto-generated catch block
 			System.out.println("Tienes que poner 2 numeros para que funcione el programa.");
 		}
-		
+
 	}
 
 }
