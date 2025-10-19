@@ -7,8 +7,36 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.Scanner;
 
+/**
+ * Clase principal del programa que ejecuta el proceso {@code Suma}.
+ * 
+ * <p>Esta clase crea un proceso hijo que ejecuta la clase {@link Suma},
+ * le envía dos números a través del flujo de salida estándar y
+ * recibe el resultado de la suma desde el flujo de entrada estándar.</p>
+ * 
+ * <p>Si no se proporcionan dos argumentos al ejecutar el programa,
+ * se lanza una excepción y se muestra un mensaje de error.</p>
+ * 
+ * <p><b>Ejemplo de ejecución:</b></p>
+ * <pre>
+ * java entrega_actividad_1_3.Main 5 8
+ * </pre>
+ * 
+ * <p>Salida esperada:</p>
+ * <pre>
+ * El total de la suma entre 5 y 8 es : 13
+ * </pre>
+ * 
+ * @author Juan Mezcua
+ * @version 1.0
+ */
 public class Main {
-
+	/**
+     * Método principal que inicia el proceso {@code Suma}, envía los parámetros,
+     * y muestra la respuesta por consola.
+     *
+     * @param args los dos números a sumar. Deben pasarse como argumentos en la línea de comandos.
+     */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 

@@ -3,7 +3,27 @@ package entrega_actividad_1_3;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-
+/**
+ * Clase {@code Suma} que recibe dos números enteros desde la entrada estándar,
+ * los suma y muestra el resultado por pantalla.
+ * 
+ * <p>Esta clase está diseñada para ser ejecutada por otro proceso (por ejemplo, {@link Main}),
+ * que le envía los datos mediante un flujo de salida.</p>
+ * 
+ * <p><b>Ejemplo de ejecución directa:</b></p>
+ * <pre>
+ * java entrega_actividad_1_3.Suma
+ * </pre>
+ * (Después introducir dos números separados por línea)
+ * 
+ * <p>Salida esperada:</p>
+ * <pre>
+ * El total de la suma entre 3 y 4 es : 7
+ * </pre>
+ * 
+ * @author Juan Mezcua
+ * @version 1.0
+ */
 public class Suma {
 
 	public static void main(String[] args) {
