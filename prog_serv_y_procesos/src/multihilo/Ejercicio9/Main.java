@@ -13,9 +13,6 @@ public class Main {
 			FileReader archNumeros=new FileReader("numeros.dat");
 			
 			try(BufferedReader leer=new BufferedReader(archNumeros)){
-				String linea;
-				int sumaTotal=0;
-				int cont=0;
 				
 				for(int i=0; i<10; i++) {
 					Thread hilo=new HiloSuma(i,leer);

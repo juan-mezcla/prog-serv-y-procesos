@@ -4,28 +4,31 @@ import java.io.BufferedReader;
 import java.io.IOException;
 
 public class HiloSuma extends Thread {
-	private int cont;
-	private int vuelta=0;
+	private int cont,inicio,fin;
+	private static int suma=0;
 	private BufferedReader leer;
+	
 	/**
 	 * @param cont
 	 */
 	public HiloSuma(int cont,BufferedReader leer) {
 		super();
-		this.cont = cont;
-		this.vuelta=cont*100;
+		this.cont=cont;
+		this.inicio=cont*100;
+		this.fin=(cont*100)+99;
 		this.leer=leer;
 	}
 
 
 	@Override
 	public void run() {
-		int suma=0;
-		for(int posicion=this.getCont(); posicion<this.getVuelta(); posicion++) {
+		
+		for(int posicion=this.getInicio(); posicion<this.getFin(); posicion++) {
 			try {
-				if(this.leer.readLine()!=null) {
+				String linea;
+				if((linea=this.leer.readLine())!=null) {
 					
-					suma+=Integer.parseInt(this.leer.readLine());
+					this.setSuma(this.getSuma()+Integer.parseInt(linea));
 				}
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
@@ -33,7 +36,18 @@ public class HiloSuma extends Thread {
 			}
 		}
 		
-		System.out.println("hilo"+ this.getCont()+":"+suma);
+		System.out.println("hilo "+ this.getCont()+" : "+suma);
+	}
+
+	
+
+	public static int getSuma() {
+		return suma;
+	}
+
+
+	public static void setSuma(int suma) {
+		HiloSuma.suma = suma;
 	}
 
 
@@ -47,13 +61,24 @@ public class HiloSuma extends Thread {
 	}
 
 
-	public int getVuelta() {
-		return vuelta;
+
+	public int getInicio() {
+		return inicio;
 	}
 
 
-	public void setVuelta(int vuelta) {
-		this.vuelta = vuelta;
+	public void setInicio(int inicio) {
+		this.inicio = inicio;
+	}
+
+
+	public int getFin() {
+		return fin;
+	}
+
+
+	public void setFin(int fin) {
+		this.fin = fin;
 	}
 
 
