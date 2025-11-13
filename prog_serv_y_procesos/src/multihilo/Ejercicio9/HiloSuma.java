@@ -36,7 +36,7 @@ public class HiloSuma extends Thread {
 			}
 		}
 		
-		System.out.println("hilo "+ this.getCont()+" : "+suma);
+		System.out.println("hilo "+ this.getCont()+" : "+this.getSuma());
 	}
 
 	
