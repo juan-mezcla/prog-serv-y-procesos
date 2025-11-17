@@ -1,0 +1,27 @@
+package ejemploSincronizacionHilos;
+/**
+ *
+ * @author Mabel
+ */
+class HiloB2 extends Thread {
+	private Contador2 contador;
+
+	public HiloB2(String n, Contador2 c) {
+		setName(n);
+		contador = c;
+	}
+
+	public void run() {
+		synchronized (contador) {
+			for (int j = 0; j < 300; j++) {
+				contador.decrementa();
+				/*try {
+					sleep(100);
+				} catch (InterruptedException e) {		}
+				*/
+			}
+			System.out.println(getName() + " contador vale "
+					+ contador.getValor());
+		}
+	}
+}// HILOB
