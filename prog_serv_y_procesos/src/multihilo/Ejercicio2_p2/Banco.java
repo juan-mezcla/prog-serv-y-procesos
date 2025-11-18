@@ -16,11 +16,11 @@ public class Banco {
 			cliente_1.join();
 			cliente_2.join();
 			
-			 System.out.println("\nPepe sacó: " + cliente_1.getTotal() + "€\n");
-		     System.out.println("Ezekiel sacó: " + cliente_2.getTotal() + "€\n");
+			 System.out.println("\nPepe: " + cliente_1.getTotal() + "€\n");
+		     System.out.println("Ezekiel: " + cliente_2.getTotal() + "€\n");
 		
 		     System.out.println("Saldo restante en la cuenta: " + account.getSaldo() + "€");
-		     System.out.println("Numero de reintegros: " + account.getNumeroReintegros());
+		     System.out.println("Numero de reintegros realizados: " + account.getNumeroReintegros());
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

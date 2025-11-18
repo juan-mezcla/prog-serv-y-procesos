@@ -12,9 +12,16 @@ public class Cuenta {
 
     // Método sincronizado que hace toda la operación
     public synchronized boolean retirar(int cantidad) {
-        if (saldo >= cantidad) {
+        if (comprobarSaldo(cantidad)) {
             saldo -= cantidad;
             numero_reintegros++;
+            return true;
+        }
+        return false;
+    }
+    
+    public boolean comprobarSaldo(int cantidad) {
+    	if (saldo >= cantidad) {
             return true;
         }
         return false;
