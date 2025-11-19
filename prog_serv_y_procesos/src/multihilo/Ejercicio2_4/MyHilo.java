@@ -1,5 +1,7 @@
 package multihilo.Ejercicio2_4;
 
+import javax.swing.JTextField;
+
 /**Para suspender de forma segura el hilo se debe introducir en el hilo una vble, por ej, suspender
 *y comprobar su valor dentro del método run(), es lo que se hace en la llamada al 
 *método esperandoParaReanudar() de este código.
@@ -12,10 +14,21 @@ public class MyHilo extends Thread {
 	private int cont=0;
 	private SolicitaSuspender suspender = new SolicitaSuspender();
 	private boolean fin;
+	private JTextField textField;
+	
+	/**
+	 * @param textField
+	 */
+	public MyHilo(JTextField textField) {
+		super();
+		this.textField = textField;
+	}
+	
 	
 	public void Suspende() {
 		suspender.set(true);//petición de suspender hilo
 	}
+
 	public void Reanuda() {
 		suspender.set(false);//petición de continuar
 	}
@@ -25,7 +38,9 @@ public class MyHilo extends Thread {
 			while (!fin) {
 				
 				cont++;
-				System.out.println("Contador: "+cont);
+				
+				textField.setText(Integer.toString(cont));
+				
 				suspender.esperandoParaReanudar();//comprobar
 				this.sleep(500);
 			}

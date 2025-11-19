@@ -24,7 +24,7 @@ public class Cliente extends Thread {
             } catch (InterruptedException e) { }
         }
 
-        System.out.println(nombre + " ha terminado. Total retirado: " + total + "€\n");
+        System.out.println("Total retirado por "+nombre+": " + total + "€\n");
     }
 
     public int getTotal() {
