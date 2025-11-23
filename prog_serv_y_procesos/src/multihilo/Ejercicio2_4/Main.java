@@ -7,7 +7,7 @@ public class Main {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		boolean fin=false;
-		MyHilo hilo=new MyHilo();//Para que funcione comentar constructor en la clase.
+		MyHilo hilo=null;//new MyHilo()Para que funcione comentar constructor en la clase.
 		
 		hilo.start();
 		
