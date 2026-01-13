@@ -33,13 +33,27 @@ public class Fichero {
 	public synchronized void leer() {
 		try (BufferedReader leer=new BufferedReader(new FileReader(arch));){
 			
-			System.out.println(leer.readLine());
+			System.out.println("contenido dentro de archivo:"+leer.readLine()+"\n");
 			
 			leer.close();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+
+	/**
+	 * @return the arch
+	 */
+	public File getArch() {
+		return arch;
+	}
+
+	/**
+	 * @param arch the arch to set
+	 */
+	public void setArch(File arch) {
+		this.arch = arch;
 	}
 
 

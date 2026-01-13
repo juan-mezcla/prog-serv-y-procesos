@@ -2,6 +2,15 @@ package ejercicio_2_6_evaluacion2;
 
 public class Consumidor extends Thread{
 	private Fichero arch;
+	
+	/**
+	 * @param arch
+	 */
+	public Consumidor(Fichero arch) {
+		super();
+		this.arch = arch;
+	}
+	
 	public Consumidor() {
 		// TODO Auto-generated constructor stub
 	}
@@ -15,7 +24,6 @@ public class Consumidor extends Thread{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		notify();
 	}
 
 }
