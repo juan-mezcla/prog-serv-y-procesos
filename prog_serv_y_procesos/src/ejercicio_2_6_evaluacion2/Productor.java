@@ -18,13 +18,17 @@ public class Productor extends Thread{
 	
 	@Override
 	public void run() {
-		arch.escribir();
-		System.out.println("\nEscribiendo en "+arch.getArch().getName() +"...");
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		int cont=0;
+		while(cont!=5) {
+			arch.escribir();
+			
+			try {
+				Thread.sleep(3000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			cont++;
 		}
 	}
 

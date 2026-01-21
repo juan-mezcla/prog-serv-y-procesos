@@ -19,25 +19,12 @@ public class Main {
 		}
 		Fichero ficherillo=new Fichero(arch);
 		
-		int cont=0;
+		Productor hiloEscribir=new Productor(ficherillo);
+		Consumidor hiloLector=new Consumidor(ficherillo);
 		
-		while(cont!=5) {
-			Productor hiloEscribir=new Productor(ficherillo);
-			Consumidor hiloLector=new Consumidor(ficherillo);
-			
-			hiloEscribir.start();
-			hiloLector.start();
-			
-			try {
-				hiloEscribir.join();
-				hiloLector.join();
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			cont++;
-		}
-		System.out.println("Fin del programa");
+		
+		hiloEscribir.start();
+		hiloLector.start();
 		
 	}
 
