@@ -1,4 +1,4 @@
-package ejercicio_3_2_evaluacion_2;
+package ejercicio_3_2_evaluacion_2._3_1;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
@@ -22,16 +22,32 @@ public class Servidor {
 		    
 		   
 		    String mensajeRecibido = respuestaCliente.readUTF();
-		    String mensajeMayusculas = mensajeRecibido.toUpperCase();
 		    
-		    System.out.println("Recibido del cliente: " + mensajeRecibido);
-		    System.out.println("Transformado a: " + mensajeMayusculas);
+		    System.out.println("Recibido del cliente: ");
+		    System.out.println(mensajeRecibido);
 
 		    
 		    DataOutputStream salidaServidor = new DataOutputStream(clienteConectado.getOutputStream());
 		    
 		    
-		    salidaServidor.writeUTF("datos en mayusc = " + mensajeMayusculas);
+		    salidaServidor.writeUTF("IP y puertos del cliente recibidos");
+		    
+		    Socket clienteConectado2 = servidor.accept();
+
+		    
+		    DataInputStream respuestaCliente2 = new DataInputStream(clienteConectado2.getInputStream());
+		    
+		   
+		    String mensajeRecibido2 = respuestaCliente.readUTF();
+		    
+		    System.out.println("Recibido del cliente: ");
+		    System.out.println(mensajeRecibido);
+
+		    
+		    DataOutputStream salidaServidor2 = new DataOutputStream(clienteConectado.getOutputStream());
+		    
+		    
+		    salidaServidor.writeUTF("IP y puertos del cliente recibidos");
 
 		    respuestaCliente.close();
 		    salidaServidor.close();

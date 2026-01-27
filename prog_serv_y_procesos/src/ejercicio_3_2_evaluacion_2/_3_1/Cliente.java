@@ -1,4 +1,4 @@
-package ejercicio_3_2_evaluacion_2;
+package ejercicio_3_2_evaluacion_2._3_1;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
@@ -20,9 +20,8 @@ public class Cliente {
 			Socket Cliente = new Socket(Host, Puerto);
 			DataOutputStream salidaCliente=new DataOutputStream(Cliente.getOutputStream());
 			
-			System.out.println("Pon un texto:");
-			String palabra=prompt.nextLine().toLowerCase();
-			salidaCliente.writeUTF(palabra);
+			
+			salidaCliente.writeUTF("cliente operativo-> port: "+Cliente.getPort()+" ip:"+Cliente.getInetAddress());
 			
 			DataInputStream datosServidor=new DataInputStream(Cliente.getInputStream());
 			
