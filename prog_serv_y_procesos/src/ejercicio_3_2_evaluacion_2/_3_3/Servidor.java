@@ -21,18 +21,19 @@ public class Servidor {
 		    DataInputStream respuestaCliente = new DataInputStream(clienteConectado.getInputStream());
 		    
 		   
-		    String mensajeRecibido = respuestaCliente.readUTF();
-		    String mensajeMayusculas = mensajeRecibido.toUpperCase();
+		    int mensajeRecibido = respuestaCliente.readInt();
+		    int cuadrado=mensajeRecibido*2;
 		    
 		    System.out.println("Recibido del cliente: " + mensajeRecibido);
-		    System.out.println("Transformado a: " + mensajeMayusculas);
+		    System.out.println("Transformado a cuadrado: " + cuadrado);
 
 		    
 		    DataOutputStream salidaServidor = new DataOutputStream(clienteConectado.getOutputStream());
 		    
 		    
-		    salidaServidor.writeUTF("datos en mayusc = " + mensajeMayusculas);
-
+		    salidaServidor.writeUTF("resultado = " + cuadrado);
+		    salidaServidor.flush();
+		    
 		    respuestaCliente.close();
 		    salidaServidor.close();
 		    clienteConectado.close();

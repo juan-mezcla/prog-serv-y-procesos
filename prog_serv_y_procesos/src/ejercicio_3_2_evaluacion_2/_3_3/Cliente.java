@@ -20,13 +20,15 @@ public class Cliente {
 			Socket Cliente = new Socket(Host, Puerto);
 			DataOutputStream salidaCliente=new DataOutputStream(Cliente.getOutputStream());
 			
-			System.out.println("Pon un texto:");
-			String palabra=prompt.nextLine().toLowerCase();
-			salidaCliente.writeUTF(palabra);
+			System.out.println("Pon el numero:");
+			int numero=prompt.nextInt();
+			prompt.nextLine();
+			salidaCliente.writeInt(numero);
+			salidaCliente.flush();
 			
 			DataInputStream datosServidor=new DataInputStream(Cliente.getInputStream());
 			
-			System.out.println("Datos server: "+datosServidor.readUTF());
+			System.out.println(datosServidor.readUTF());
 			
 			
 			datosServidor.close();

@@ -38,20 +38,26 @@ public class Servidor {
 		    DataInputStream respuestaCliente2 = new DataInputStream(clienteConectado2.getInputStream());
 		    
 		   
-		    String mensajeRecibido2 = respuestaCliente.readUTF();
+		    String mensajeRecibido2 = respuestaCliente2.readUTF();
 		    
 		    System.out.println("Recibido del cliente: ");
-		    System.out.println(mensajeRecibido);
+		    System.out.println(mensajeRecibido2);
 
 		    
-		    DataOutputStream salidaServidor2 = new DataOutputStream(clienteConectado.getOutputStream());
+		    DataOutputStream salidaServidor2 = new DataOutputStream(clienteConectado2.getOutputStream());
 		    
 		    
-		    salidaServidor.writeUTF("IP y puertos del cliente recibidos");
+		    salidaServidor2.writeUTF("IP y puertos del cliente recibidos");
 
 		    respuestaCliente.close();
 		    salidaServidor.close();
 		    clienteConectado.close();
+		    
+		    
+		    respuestaCliente2.close();
+		    salidaServidor2.close();
+		    clienteConectado2.close();
+		    
 		    servidor.close();
 
 		} catch (IOException e) {
